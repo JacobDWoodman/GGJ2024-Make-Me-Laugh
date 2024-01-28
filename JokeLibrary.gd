@@ -37,6 +37,4 @@ func _setup_new_joke():
 	else:
 		var temp = JokeArr[0] #get current joke
 		JokeArr.remove(0) #remove current joke
-		#JokeArr.shuffle() #shuffle jokes around -- strangely not working?
 		JokeArr.append(temp) #add current joke
-	pass
