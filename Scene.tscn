@@ -1,0 +1,573 @@
+[gd_scene load_steps=80 format=2]
+
+[ext_resource path="res://textures/view.png" type="Texture" id=1]
+[ext_resource path="res://textures/buttons/Button2.png" type="Texture" id=2]
+[ext_resource path="res://textures/buttons/TellJoke2.png" type="Texture" id=3]
+[ext_resource path="res://textures/buttons/TellJoke3.png" type="Texture" id=4]
+[ext_resource path="res://textures/buttons/TellJoke1.png" type="Texture" id=5]
+[ext_resource path="res://scripts/Button.gd" type="Script" id=6]
+[ext_resource path="res://scripts/Controller.gd" type="Script" id=7]
+[ext_resource path="res://textures/buttons/ButtonPress2.png" type="Texture" id=8]
+[ext_resource path="res://textures/buttons/ButtonHover2.png" type="Texture" id=9]
+[ext_resource path="res://textures/Mode3.png" type="Texture" id=10]
+[ext_resource path="res://textures/Mode4.png" type="Texture" id=11]
+[ext_resource path="res://textures/Mode2.png" type="Texture" id=12]
+[ext_resource path="res://animations/loadingBar/Verbosity.tres" type="Animation" id=13]
+[ext_resource path="res://animations/loadingBar/Absurdism.tres" type="Animation" id=14]
+[ext_resource path="res://animations/loadingBar/Gabbagool.tres" type="Animation" id=15]
+[ext_resource path="res://animations/loadingBar/LoadingAnim.tres" type="Animation" id=16]
+[ext_resource path="res://textures/LoadingBar/Loading1.png" type="Texture" id=17]
+[ext_resource path="res://animations/loadingBar/Wordplay.tres" type="Animation" id=18]
+[ext_resource path="res://textures/LoadingBar/Loading9.png" type="Texture" id=19]
+[ext_resource path="res://textures/LoadingBar/Loading12.png" type="Texture" id=20]
+[ext_resource path="res://textures/LoadingBar/Loading2.png" type="Texture" id=21]
+[ext_resource path="res://textures/LoadingBar/Loading10.png" type="Texture" id=22]
+[ext_resource path="res://textures/LoadingBar/Loading5.png" type="Texture" id=23]
+[ext_resource path="res://textures/LoadingBar/Loading13.png" type="Texture" id=24]
+[ext_resource path="res://textures/LoadingBar/Loading3.png" type="Texture" id=25]
+[ext_resource path="res://textures/LoadingBar/Loading8.png" type="Texture" id=26]
+[ext_resource path="res://textures/LoadingBar/Loading7.png" type="Texture" id=27]
+[ext_resource path="res://textures/Mode1.png" type="Texture" id=28]
+[ext_resource path="res://textures/LoadingBar/Loading14.png" type="Texture" id=29]
+[ext_resource path="res://textures/LoadingBar/Loading11.png" type="Texture" id=30]
+[ext_resource path="res://textures/LoadingBar/Loading4.png" type="Texture" id=31]
+[ext_resource path="res://textures/LoadingBar/Loading6.png" type="Texture" id=32]
+[ext_resource path="res://JokeLibrary.gd" type="Script" id=33]
+[ext_resource path="res://animations/face/face3.png" type="Texture" id=34]
+[ext_resource path="res://Face.gd" type="Script" id=35]
+[ext_resource path="res://text/ace_attorney.tres" type="DynamicFont" id=36]
+[ext_resource path="res://DialogBox.gd" type="Script" id=37]
+[ext_resource path="res://RichTextLabel.gd" type="Script" id=38]
+[ext_resource path="res://Audio/Beep2.wav" type="AudioStream" id=39]
+[ext_resource path="res://Audio/Beep1.wav" type="AudioStream" id=40]
+[ext_resource path="res://Audio/Beep0.wav" type="AudioStream" id=41]
+[ext_resource path="res://Audio/Beep3.wav" type="AudioStream" id=42]
+[ext_resource path="res://Audio/Fail.wav" type="AudioStream" id=43]
+[ext_resource path="res://Audio/Success.wav" type="AudioStream" id=44]
+[ext_resource path="res://Audio/DialAdjust.wav" type="AudioStream" id=45]
+[ext_resource path="res://Audio/ButtonPress.wav" type="AudioStream" id=46]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Absurdism"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Gabbagool"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Loading"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Verbosity"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Wordplay"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachine" id=14]
+states/Absurdism/node = SubResource( 1 )
+states/Absurdism/position = Vector2( 148, 132 )
+states/Gabbagool/node = SubResource( 2 )
+states/Gabbagool/position = Vector2( 330, 54 )
+states/Loading/node = SubResource( 3 )
+states/Loading/position = Vector2( 330, 132 )
+states/Verbosity/node = SubResource( 4 )
+states/Verbosity/position = Vector2( 504, 132 )
+states/Wordplay/node = SubResource( 5 )
+states/Wordplay/position = Vector2( 330, 211 )
+transitions = [ "Loading", "Gabbagool", SubResource( 6 ), "Loading", "Absurdism", SubResource( 7 ), "Loading", "Wordplay", SubResource( 8 ), "Loading", "Verbosity", SubResource( 9 ), "Verbosity", "Loading", SubResource( 10 ), "Gabbagool", "Loading", SubResource( 11 ), "Absurdism", "Loading", SubResource( 12 ), "Wordplay", "Loading", SubResource( 13 ) ]
+start_node = "Loading"
+graph_offset = Vector2( -233.173, 55.4712 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=15]
+
+[sub_resource type="Animation" id=16]
+resource_name = "Absurdism"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 28 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Gabbagool"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Loading"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.8, 0.9, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 2.2974, 3.86375, 2.21914, 3.36359, 0.965936, 1, 1, 2.2974, 1.6245, 2.54912, 2.2974, 1.07177, 0.594604, 1.41421 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 31 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 30 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 29 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "Verbosity"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 2.54912, 0.5 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 12 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Wordplay"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 10 ) ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=21]
+
+[sub_resource type="Animation" id=22]
+resource_name = "Absurdism"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 28 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "Gabbagool"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "Loading"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.8, 0.9, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 2.2974, 3.86375, 2.21914, 3.36359, 0.965936, 1, 1, 2.2974, 1.6245, 2.54912, 2.2974, 1.07177, 0.594604, 1.41421 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 31 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 30 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 29 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "Verbosity"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 2.54912, 0.5 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 12 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "Wordplay"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 10 ) ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=27]
+
+[sub_resource type="Animation" id=28]
+resource_name = "Absurdism"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 28 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "Gabbagool"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "Loading"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.8, 0.9, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 2.2974, 3.86375, 2.21914, 3.36359, 0.965936, 1, 1, 2.2974, 1.6245, 2.54912, 2.2974, 1.07177, 0.594604, 1.41421 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 31 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 30 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 29 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "Verbosity"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 2.54912, 0.5 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 12 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "Wordplay"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 10 ) ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=33]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+sounds = [ ExtResource( 44 ), ExtResource( 43 ), null ]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 256, 180 )
+volume_db = -4.0
+
+[node name="view" type="Sprite" parent="."]
+position = Vector2( 256.151, 149.94 )
+texture = ExtResource( 1 )
+script = ExtResource( 33 )
+
+[node name="ButtonTL" type="TextureButton" parent="view"]
+margin_left = -220.765
+margin_top = -96.2712
+margin_right = -165.765
+margin_bottom = -26.2712
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="view/ButtonTL"]
+position = Vector2( 27, 80 )
+texture = ExtResource( 29 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="view/ButtonTL"]
+root_node = NodePath("../Sprite")
+anims/Absurdism = ExtResource( 14 )
+anims/Gabbagool = ExtResource( 15 )
+anims/Loading = ExtResource( 16 )
+anims/Verbosity = ExtResource( 13 )
+anims/Wordplay = ExtResource( 18 )
+
+[node name="AnimationTree" type="AnimationTree" parent="view/ButtonTL"]
+tree_root = SubResource( 14 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 15 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="view/ButtonTL"]
+position = Vector2( 27, 20 )
+stream = ExtResource( 45 )
+
+[node name="ButtonBL" type="TextureButton" parent="view"]
+margin_left = -220.457
+margin_top = 22.9835
+margin_right = -165.457
+margin_bottom = 92.9835
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="view/ButtonBL"]
+position = Vector2( 27, 80 )
+texture = ExtResource( 29 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="view/ButtonBL"]
+root_node = NodePath("../Sprite")
+anims/Absurdism = SubResource( 16 )
+anims/Gabbagool = SubResource( 17 )
+anims/Loading = SubResource( 18 )
+anims/Verbosity = SubResource( 19 )
+anims/Wordplay = SubResource( 20 )
+
+[node name="AnimationTree" type="AnimationTree" parent="view/ButtonBL"]
+tree_root = SubResource( 14 )
+anim_player = NodePath("../AnimationPlayer2")
+active = true
+parameters/playback = SubResource( 21 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="view/ButtonBL"]
+position = Vector2( 26, 20 )
+stream = ExtResource( 45 )
+
+[node name="ButtonBR" type="TextureButton" parent="view"]
+margin_left = 168.059
+margin_top = 23.1141
+margin_right = 223.059
+margin_bottom = 93.1141
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="view/ButtonBR"]
+position = Vector2( 27, 80 )
+texture = ExtResource( 29 )
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="view/ButtonBR"]
+root_node = NodePath("../Sprite")
+anims/Absurdism = SubResource( 22 )
+anims/Gabbagool = SubResource( 23 )
+anims/Loading = SubResource( 24 )
+anims/Verbosity = SubResource( 25 )
+anims/Wordplay = SubResource( 26 )
+
+[node name="AnimationTree" type="AnimationTree" parent="view/ButtonBR"]
+tree_root = SubResource( 14 )
+anim_player = NodePath("../AnimationPlayer3")
+active = true
+parameters/playback = SubResource( 27 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="view/ButtonBR"]
+position = Vector2( 27, 20 )
+stream = ExtResource( 45 )
+
+[node name="ButtonTR" type="TextureButton" parent="view"]
+margin_left = 167.342
+margin_top = -95.9034
+margin_right = 222.342
+margin_bottom = -25.9034
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="view/ButtonTR"]
+position = Vector2( 27, 80 )
+texture = ExtResource( 29 )
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="view/ButtonTR"]
+root_node = NodePath("../Sprite")
+anims/Absurdism = SubResource( 28 )
+anims/Gabbagool = SubResource( 29 )
+anims/Loading = SubResource( 30 )
+anims/Verbosity = SubResource( 31 )
+anims/Wordplay = SubResource( 32 )
+
+[node name="AnimationTree" type="AnimationTree" parent="view/ButtonTR"]
+tree_root = SubResource( 14 )
+anim_player = NodePath("../AnimationPlayer3")
+active = true
+parameters/playback = SubResource( 33 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="view/ButtonTR"]
+position = Vector2( 27, 20 )
+stream = ExtResource( 45 )
+
+[node name="TellJoke" type="TextureButton" parent="view"]
+margin_left = 63.6411
+margin_top = 73.733
+margin_right = 126.641
+margin_bottom = 143.733
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonSound" type="AudioStreamPlayer2D" parent="view/TellJoke"]
+position = Vector2( 32, 24 )
+stream = ExtResource( 46 )
+volume_db = 12.0
+
+[node name="Face" type="Sprite" parent="view"]
+position = Vector2( -3.3165, -33.5667 )
+texture = ExtResource( 34 )
+script = ExtResource( 35 )
+
+[node name="FailTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="SuccessTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="PostDecisionTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="DialogBox" type="Node2D" parent="."]
+script = ExtResource( 37 )
+sounds = [ ExtResource( 41 ), ExtResource( 40 ), ExtResource( 39 ), ExtResource( 42 ) ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
+margin_left = 126.0
+margin_top = 228.0
+margin_right = 310.0
+margin_bottom = 284.0
+custom_fonts/normal_font = ExtResource( 36 )
+bbcode_text = "example text eeeeeeeeeeeeeaaaaaaaaaa oooooooooo"
+text = "example text eeeeeeeeeeeeeaaaaaaaaaa oooooooooo"
+script = ExtResource( 38 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogBox"]
+wait_time = 0.05
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DialogBox"]
+position = Vector2( 256, 206 )
+volume_db = -10.0
+[connection signal="button_down" from="view/ButtonTL" to="." method="_on_ButtonTL_button_down"]
+[connection signal="button_down" from="view/ButtonBL" to="." method="_on_ButtonBL_button_down"]
+[connection signal="button_down" from="view/ButtonBR" to="." method="_on_ButtonBR_button_down"]
+[connection signal="button_down" from="view/ButtonTR" to="." method="_on_ButtonTR_button_down"]
+[connection signal="button_down" from="view/TellJoke" to="." method="_on_TellJoke_button_down"]
+[connection signal="timeout" from="FailTimer" to="." method="_on_FailTimer_timeout"]
+[connection signal="timeout" from="SuccessTimer" to="." method="_on_SuccessTimer_timeout"]
+[connection signal="timeout" from="PostDecisionTimer" to="." method="_on_PostDecisionTimer_timeout"]
+[connection signal="timeout" from="DialogBox/Timer" to="DialogBox" method="_on_Timer_timeout"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DialAdjust.wav-570faf031cde74e834ebf5ff8804704f.sample"
+
+[deps]
+
+source_file="res://Audio/DialAdjust.wav"
+dest_files=[ "res://.import/DialAdjust.wav-570faf031cde74e834ebf5ff8804704f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
